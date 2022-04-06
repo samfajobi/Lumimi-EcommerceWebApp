@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;  
   postion: relative;
+  background-color: lightgray;
 `
 
 const Arrow = styled.div`
