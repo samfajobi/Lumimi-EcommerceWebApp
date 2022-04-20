@@ -3,7 +3,10 @@ import Navbar from '../Navbar/Navbar'
 import Announcement from '../Announcements/Announcement'
 import Slider from '../Slider/Slider'
 import ItemCategories from '../ItemCategories/ItemCategories'
-import styled from 'styled-components'
+import Products from '../Products/Products'
+import InfoSeciton from '../InfoSection/InfoSeciton'
+import Footer from '../../Footer/Footer'
+
 
 
 
@@ -15,6 +18,9 @@ const Home = () => {
       <Navbar />
       <Slider />
       <ItemCategories />
+      <Products />
+      <InfoSeciton />
+      <Footer />
     </div>
   )
 }
