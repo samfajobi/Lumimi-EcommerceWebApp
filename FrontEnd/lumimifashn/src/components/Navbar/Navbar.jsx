@@ -66,7 +66,6 @@ const Navbar = () => {
                 <SearchContainer>
                     <Input/>
                     <SearchIcon />
-                   
                 </SearchContainer>
             </Left>
             <Center>
@@ -79,7 +78,6 @@ const Navbar = () => {
               <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
-
               </MenuItem>
             </Right>
 

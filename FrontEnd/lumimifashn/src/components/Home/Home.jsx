@@ -4,7 +4,7 @@ import Announcement from '../Announcements/Announcement'
 import Slider from '../Slider/Slider'
 import ItemCategories from '../ItemCategories/ItemCategories'
 import Products from '../Products/Products'
-import InfoSeciton from '../InfoSection/InfoSeciton'
+import InfoSection from '../InfoSection/InfoSection'
 import Footer from '../../Footer/Footer'
 
 
@@ -19,7 +19,7 @@ const Home = () => {
       <Slider />
       <ItemCategories />
       <Products />
-      <InfoSeciton />
+      <InfoSection />
       <Footer />
     </div>
   )
