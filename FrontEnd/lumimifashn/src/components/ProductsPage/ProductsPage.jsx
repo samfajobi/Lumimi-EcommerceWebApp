@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Navbar from "../Navbar/Navbar"
 import Announcement from "../Announcements/Announcement"
-import InfoSeciton from "../InfoSection/InfoSecton"
+import InfoSection from "../InfoSection/InfoSection"
 import Footer from "../../Footer/Footer"
 import Products from "../Products/Products"
 
@@ -77,7 +77,7 @@ const ProductsPage = () => {
             </Filter>
           </FilterContainer>
           <Products />
-          <InfoSeciton />
+          <InfoSection />
           <Footer />
       </Container>
    
