@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
-    res.send('User is Available')
-}) 
+
 
 module.exports = router;

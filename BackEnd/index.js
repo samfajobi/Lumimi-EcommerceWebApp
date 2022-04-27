@@ -2,8 +2,11 @@ const dotenv = require("dotenv")
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/user')
+const authRoute = require('./routes/auth')
 
 const app = express();
+
+app.use(express.json());
 
 
 dotenv.config()
@@ -13,6 +16,7 @@ mongoose.connect(process.env.DATABASE_URL)
 .catch( err => console.log(err))
 
 app.use('/api/test', userRoute)
+app.use('/api/auth', authRoute)
 
 const Port = process.env.PORT || 4000;
 

@@ -20,7 +20,9 @@ const CartSchema = new mongoose.Schema(
                 }
             }
         ]
-    }
+    },
+    { timestamps: true }
+
 );
 
 const CartModel = mongoose.model('CartModel', CartSchema);
