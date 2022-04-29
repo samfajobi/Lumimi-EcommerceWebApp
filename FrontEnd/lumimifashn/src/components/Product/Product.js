@@ -13,7 +13,7 @@ const Info = styled.div`
   z-index: 3;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;    
   transition: all 1.1s ease;
   cursor: pointer;
 

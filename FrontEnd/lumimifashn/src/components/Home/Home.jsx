@@ -5,7 +5,7 @@ import Slider from '../Slider/Slider'
 import ItemCategories from '../ItemCategories/ItemCategories'
 import Products from '../Products/Products'
 import InfoSection from '../InfoSection/InfoSection'
-import Footer from '../../Footer/Footer'
+import Footer from '../Footer/Footer'
 
 
 

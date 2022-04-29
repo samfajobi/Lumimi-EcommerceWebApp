@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Navbar from "../Navbar/Navbar";
 import Announcement from "../Announcements/Announcement";
 import InfoSection from "../InfoSection/InfoSection";
-import Footer from "../../Footer/Footer";
+import Footer from "../Footer/Footer";
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 

@@ -14,7 +14,7 @@ function App() {
     {/* <Register /> */}
     {/* // <ProductsPage /> */}
     <ProductPage /> 
-    {/* <Home/> */}
+    <Home/>
     </div>
     
    
