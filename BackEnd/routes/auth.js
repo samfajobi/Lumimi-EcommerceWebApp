@@ -16,7 +16,6 @@ router.post('/register', async ( req, res) => {
          process.env.Sec_Pass).toString()  
     })
    
-    
     try {
         const userData = await newUser.save()
         res.status(200).json(userData);
@@ -28,7 +27,6 @@ router.post('/register', async ( req, res) => {
 
 
 // Login
-
 
 router.post('/login', async ( req, res) => {
     
@@ -43,10 +41,17 @@ router.post('/login', async ( req, res) => {
     //  MainPassword !== req.body.password &&  
     //   res.status(500).json("Wrong Information!!");
 
-    const Token = Jwt.sign()
+    const accessToken = Jwt.sign({
+        id: user._id,
+        isAdmin: user._isAdmin
+        }, 
+        process.env.JWT_KEY,
+        { expiresIn: process.env.JWT_EXPIRES_IN}
+        
+        )
 
     const { password, ...others}  = user._doc;
-    res.status(200).json(others);
+    res.status(200).json({...others, accessToken});
 
 
    } catch(err) {
