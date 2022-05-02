@@ -9,11 +9,11 @@ import Login from "./components/Login/Login";
 function App() {
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
     {/* <Cart /> */}
     {/* <Register /> */}
     {/* // <ProductsPage /> */}
-    <ProductPage /> 
+    {/* <ProductPage />  */}
     <Home/>
     </div>
     

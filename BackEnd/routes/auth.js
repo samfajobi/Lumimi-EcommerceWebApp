@@ -18,7 +18,12 @@ router.post('/register', async ( req, res) => {
    
     try {
         const userData = await newUser.save()
-        res.status(200).json(userData);
+        res.status(200).json({
+            status: 'success',
+            data: {
+                userData
+            }
+        });
 
     } catch(err) {  
         res.status(404).json(err) 
@@ -47,12 +52,10 @@ router.post('/login', async ( req, res) => {
         }, 
         process.env.JWT_KEY,
         { expiresIn: process.env.JWT_EXPIRES_IN}
-        
         )
 
     const { password, ...others}  = user._doc;
     res.status(200).json({...others, accessToken});
-
 
    } catch(err) {
        res.status(500).json(err)
