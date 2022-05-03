@@ -3,9 +3,10 @@ const Jwt = require("jsonwebtoken");
 
 
 const verifyToken =  ( req, res, next) => {
-    const authHeader = req.header.token
+    const authHeader = req.headers.token
 
     if(authHeader) {
+        const token = authHeader.split(" ")[1]
         Jwt.verify(token, process.env.JWT_KEY, (err, user) => {
             if(err) res.status(403).json("Token Not Valid!!")
             req.user = user;
@@ -29,4 +30,18 @@ const verifyTokenAndAuthorization = (req, res, next) => {
     })
 }
 
-module.exports = { verifyToken, verifyTokenAndAuthorization };
+
+const verifyTokenAndisAdmin = ( req, res, next) => {
+    verifyToken( req, res, () => {
+        if( req.user.isAdmin) {
+            next()
+
+        } else {
+            res.status(403).json("ACCESS DENIED!!!")
+        }
+    })
+
+}
+
+
+module.exports = { verifyToken, verifyTokenAndAuthorization, verifyTokenAndisAdmin };

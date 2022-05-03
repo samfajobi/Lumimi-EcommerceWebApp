@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const userRoute = require('./routes/user')
 const authRoute = require('./routes/auth')
 
+
 const app = express();
 
 app.use(express.json());
@@ -15,7 +16,7 @@ mongoose.connect(process.env.DATABASE_URL)
 .then( () => console.log('DB Connection Successful'))
 .catch( err => console.log(err))
 
-app.use('/api/test', userRoute)
+app.use('/api/user', userRoute)
 app.use('/api/auth', authRoute)
 
 const Port = process.env.PORT || 4000;
