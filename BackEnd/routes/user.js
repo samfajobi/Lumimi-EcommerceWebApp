@@ -4,6 +4,7 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndisAdmin } = requ
 const router = express.Router();
 
 // Update to Database
+
 router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
     if(req.body.password) {
         req.body.password = CryptoJS.AES.encrypt(
@@ -49,7 +50,7 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 
-  // Get One User/document on Databse
+  // Get One User/Document on Databse
 
 router.get("/:id", verifyTokenAndisAdmin, async ( req, res) => {
     try {
@@ -68,7 +69,7 @@ router.get("/:id", verifyTokenAndisAdmin, async ( req, res) => {
 })
 
 
-// Get All Users/documents on Database
+// Get All Users/Documents on Database
 
 router.get('/',  async ( req, res) => {
     try{
