@@ -37,10 +37,11 @@ const verifyTokenAndisAdmin = ( req, res, next) => {
             next()
 
         } else {
-            res.status(403).json("ACCESS DENIED!!!")
+            res.status(403).json("ACCESS DENIED!!! NOT ALLOWED!!!")
         }
     })  
 }
+
 
 
 module.exports = { verifyToken, verifyTokenAndAuthorization, verifyTokenAndisAdmin };

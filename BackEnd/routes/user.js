@@ -50,15 +50,13 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 
+
+       // To Recheck Get user Routes
+
   // Get One User/Document on Databse
 
 router.get("/:id", verifyTokenAndisAdmin, async ( req, res) => {
     try {
-        if(req.user.password) {
-            req.user.password = CryptoJS.AES.encrypt(
-                req.body.password,
-                process.env.Sec_Pass).toString() 
-        }
 
         const findUser = await UserModel.findById(req.params.id);
         res.status(200).json(findUser);
@@ -71,6 +69,7 @@ router.get("/:id", verifyTokenAndisAdmin, async ( req, res) => {
 
 // Get All Users/Documents on Database
 
+
 router.get('/',  async ( req, res) => {
     try{
 
@@ -82,4 +81,22 @@ router.get('/',  async ( req, res) => {
     }
 })
 
-module.exports = router; 
+
+//   Get All Stats  i.e Total Number of registered Users per month...
+
+router.get("/stats",  async ( req, res) => {
+
+
+    const date = new Date()
+    const YearBefore = new Date( date.setFullYear(date.getFullYear() - 1))
+
+    try {
+        
+
+    } catch (err) {
+        res.status(403).json(err)
+    }
+
+})
+
+module.exports = router;   

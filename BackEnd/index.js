@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/user')
 const authRoute = require('./routes/auth')
+const cartRoute = require("./routes/cart")
 
 
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.DATABASE_URL)
 
 app.use('/api/user', userRoute)
 app.use('/api/auth', authRoute)
+app.use("/api/cart", cartRoute)
 
 const Port = process.env.PORT || 4000;
 

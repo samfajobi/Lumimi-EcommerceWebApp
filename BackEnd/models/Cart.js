@@ -5,7 +5,7 @@ const { stringify } = require('nodemon/lib/utils');
 const CartSchema = new mongoose.Schema(
     {
         userId: {
-            type: stringify,
+            type: String,
             required: true
         },
         product: [

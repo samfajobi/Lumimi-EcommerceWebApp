@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import Navbar from "../Navbar/Navbar"
 import Announcement from "../Announcements/Announcement"
-import InfoSecton from "../InfoSection/InfoSecton"
-import Footer from "../../Footer/Footer"
+import InfoSection from "../InfoSection/InfoSection"
+import Footer from "../Footer/Footer"
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
@@ -265,7 +265,7 @@ const Cart = () => {
             </Summary>
           </Bottom>
         </Wrapper>
-        <InfoSecton />
+        <InfoSection />
         <Footer />
         
 
