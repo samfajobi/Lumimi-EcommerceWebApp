@@ -6,7 +6,8 @@ const UserCart = require("./models/Cart")
 router.put("/:id", async ( req, res) => {
     try{
 
-        const User = await  UserCart.find()
+        const User = await  UserCart.fiindByIdAndUpdate(req,params.id)
+        res.status(200).json(User)
 
     } catch(err) {
         res.status(403).json(err)
