@@ -1,0 +1,68 @@
+const express = require("express");
+const router = express.Router();
+const ProductModel = require("./models/Products")
+
+
+
+
+router.put("/:id", async ( req, res ) => {
+    try{
+
+        const UserProducts = await ProductModel.findByIdAndUpdate(req.params.id,
+            {
+                $set: req.body
+            },
+            {
+                new: true
+            }
+            )
+
+        res.status(200).json(UserProducts)
+
+    } catch (err) {
+        res.status(403).json(err)
+    }
+})
+
+
+router.delete("/:id", async ( req, res ) => {
+    try {
+
+        await ProductModel.findByIdAndDelete(req.params.id)
+        res.status(200).json("Product has been deleted Successfully")
+
+    } catch(err) {
+        res.status(403).json(err)
+    }
+})
+
+router.get("/:id", async ( res, req ) => {
+    try {
+
+        const Product = await ProductModel.findById(req.params.id)
+        res.status(200).json(Product)
+
+
+    } catch(err) {
+        res.status(403).json(err)
+    }
+} ) 
+
+
+
+router.get("/", async ( req, res ) => {
+    try { 
+
+        const Products = await ProductModel.find()
+
+        res.status(403).json(Products)
+
+
+    } catch(err) {
+        res.status(403).json(err)
+
+
+    }
+} )
+
+module.exports = router;

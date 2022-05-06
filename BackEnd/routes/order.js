@@ -55,7 +55,7 @@ router.get("/:id", async ( res, req ) => {
 })
 
 
-router.get("/", ( res, req) => {
+router.get("/", async ( res, req) => {
     try{
 
         const UserOrders = await UserOrder.find()
