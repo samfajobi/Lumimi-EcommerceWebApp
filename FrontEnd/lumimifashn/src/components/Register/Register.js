@@ -55,17 +55,51 @@ const Button = styled.button`
 
 
 const Register = () => {
+
+  const [ name, setName] = useState("")
+  const [ lastName, setLastName] = useState("")
+  const [ userName, setUserName] = useState("")
+  const [email, setEmail] = useState("")
+  const [ password, setPassword] = useState("")
+  const [ confirmPassword, setConfirmPassword] = useState("")
+
+
+  const SubmitForm = () => {
+
+    let formData = {
+      name: name,
+      lastname: lastName,
+      username: userName,
+      email: email,
+      pass: password,
+      confirmpass: confirmPassword
+    }
+
+    axios.post("/register", formData).
+    then( (res) => {
+      console.log(`Form has been Submitted!!! ${res}`)
+    }).catch ( (err) => {
+      console.log(`Error!!! ${err}`)
+    })
+  }
+
+
+ handleNameEvent = (event) => {
+   setName(event.target.value)
+ }
+
+
   return (
    <Container>
      <Wrapper>
        <Title>CREATE AN ACCOUNT</Title>
        <Form>
-         <Input placeholder='name' />
-         <Input placeholder='lastname' />
-         <Input placeholder='username' />
-         <Input placeholder='email'/>
-         <Input placeholder='password'/>
-         <Input placeholder='confirm password'/>
+         <Input placeholder='name' onChange={handleNameEvent} />
+         <Input placeholder='lastname' onChange={ (event) => setLastName(event.target.value)} />
+         <Input placeholder='username' onChange={ (event) => setUserName(event.target.value)}/>
+         <Input placeholder='email' onChange={ (event) => setEmail(event.target.value)}/>
+         <Input placeholder='password' onChange={ (event) => setPassword(event.target.value)}/>
+         <Input placeholder='confirm password' onChange={ (event) => setConfirmPassword(event.target.value)}/>
          <Agreement> I really do agree to create an account in accordance to <b>Policy</b> </Agreement>
        </Form>
        <Button>CREATE</Button>
