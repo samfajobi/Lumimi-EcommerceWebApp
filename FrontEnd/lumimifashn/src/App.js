@@ -4,21 +4,33 @@ import ProductPage from "./components/ProductPage/ProductPage";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Cart from "./components/Cart/Cart";
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {
   return (
-    <div>
-      {/* <Login /> */}
-    <Cart />
-    {/* <Register /> */}
-     <ProductsPage />
-    {/* <ProductPage />  */}
-    {/* <Home/> */}
-    </div>
-    
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/products/:category" element={<ProductsPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
+
    
   );
 }
+
+ // <div>
+    //   {/* <Login /> */}
+    // <Cart />
+    // {/* <Register /> */}
+    //  <ProductsPage />
+    // {/* <ProductPage />  */}
+    // {/* <Home/> */}
+    // </div>
 
 export default App;

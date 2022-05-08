@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react"
 
 
 const Container = styled.div` 
@@ -84,7 +85,7 @@ const Register = () => {
   }
 
 
- handleNameEvent = (event) => {
+ const handleNameEvent = (event) => {
    setName(event.target.value)
  }
 

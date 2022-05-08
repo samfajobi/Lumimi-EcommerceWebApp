@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 
 const Container = styled.div`
@@ -50,13 +51,16 @@ const Button = styled.button`
 
 const ItemCategory = ({item}) => {
   return (
+    
     <Container>
-      <Img src={item.img}/>
-      <CatInfo>
-        <CatTitle> {item.title}</CatTitle>
-        <Button>SHOP NOW</Button>
-      </CatInfo>
-        
+      <Link to= {`products/${item.cat}`}>
+        <Img src={item.img}/>
+        <CatInfo>
+          <CatTitle> {item.title}</CatTitle>
+          <Button>SHOP NOW</Button>
+        </CatInfo>
+      </Link>
+     
     </Container>
   )
 }
