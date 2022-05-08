@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const Container = styled.div`
   width: 100vw;
@@ -56,15 +57,36 @@ const Link = styled.div`
 
 
 const Login = () => {
+
+  const [ username, setUsername ]  = useState("")
+  const [ userPassword, setPassword ]  = useState("")
+
+  const SubmitForm = () => {
+
+    let formData = {
+      name: username,
+      password: userPassword
+    }
+
+    axios.post("/login", formData).
+    then( response => {
+      console.log(response)
+    }).catch ( () => {
+      console.log("Your Form Data have not been sent successfully")
+    }) 
+    
+  }
+
+  
   return (
     <Container>
     <Wrapper>
       <Title>SIGN IN</Title>
       <Form>
-        <Input placeholder='Username' />
-        <Input placeholder='Password' />
+        <Input onChange ={ (event) => setUsername(event.target.value)} placeholder='Username' />
+        <Input onChange = { (event) => setPassword(event.target.value) } placeholder='Password' />
       </Form>
-      <Button>LOGIN</Button>
+      <Button onClick={SubmitForm}>LOGIN</Button>
       <Link>FORGOTTEN PASSWORD?</Link>
       <Link>CREATE A NEW ACCOUNT</Link>
     </Wrapper>
