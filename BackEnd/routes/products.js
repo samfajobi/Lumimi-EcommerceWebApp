@@ -69,10 +69,24 @@ router.get("/:id", async ( res, req ) => {
 
 
 router.get("/", async ( req, res ) => {
-    try { 
+    const newQuery = req.query.new
+    const queryCategory = req.query.queryCategory
 
-        const Products = await ProductModel.find()
-        res.status(200).json(Products) 
+    try { 
+        let products;
+
+        if(newQuery) {
+            products = await ProductModel.find().sort({createdAt: -1}).limit()
+        } else if(queryCategory) {
+            products = await ProductModel.find({categories: {
+                $in: [queryCategory] 
+            }}).sort({createdAt: -1})
+
+        } else {
+            products = await ProductModel.find()
+        }
+        
+        res.status(200).json(products) 
 
 
     } catch(err) {

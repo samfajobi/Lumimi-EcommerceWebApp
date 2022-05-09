@@ -74,14 +74,16 @@ router.get("/:id",  async ( req, res) => {
 
 
 router.get('/',  async ( req, res) => {
+
+    const query = req.query.new
     try{
 
-        const findAllUser = await UserModel.find()
+        const findAllUser = query ? await UserModel.find().sort({_id: -1}).limit(2) : await UserModel.find()
         res.status(200).json(findAllUser)
 
     } catch(err) {
-        res.status(403).json()
-    }
+        res.status(403).json(query) 
+    } 
 })
 
 
