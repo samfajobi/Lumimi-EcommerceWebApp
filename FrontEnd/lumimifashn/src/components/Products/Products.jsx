@@ -15,13 +15,21 @@ const Products = ({cat, sort, filters}) => {
   const [ filter, setFilter ] = useState([])
 
   useEffect( () => {
-    const res = axios.get("localhost:5000/api/products")
+    const getProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/products/")
+        console.log(response)
 
-  }, [])
-
+      } catch(err) {
+        console.log(err)
+      }
+    }
+    getProducts()
+  }, [cat])
 
 
   
+
   return (
     <Container>
         {productData.map( (product) => (
