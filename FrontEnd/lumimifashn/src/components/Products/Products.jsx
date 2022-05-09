@@ -8,7 +8,8 @@ const Container = styled.div`
   flex-wrap: wrap;
 `
 
-const Products = () => {
+const Products = ({cat, sort, filters}) => {
+  console.log(cat, sort, filters)
   return (
     <Container>
         {productData.map( (product) => (
