@@ -42,6 +42,7 @@ router.put("/:id", async ( req, res) => {
     }
 })
 
+
 router.delete("/:id", async ( req, res ) => {
     try {
 
@@ -54,7 +55,7 @@ router.delete("/:id", async ( req, res ) => {
 })
 
 
-router.get("/:id", async ( res, req ) => {
+router.get("/:id", async ( req, res ) => {
     try {
 
         const Product = await ProductModel.findById(req.params.id)
@@ -62,21 +63,21 @@ router.get("/:id", async ( res, req ) => {
 
 
     } catch(err) {
-        res.status(500).json(err)
+        res.status(403).json(err)
     }
 } ) 
 
 
-
+ 
 router.get("/", async ( req, res ) => {
     const newQuery = req.query.new
-    const queryCategory = req.query.queryCategory
+    const queryCategory = req.query.Category
 
     try { 
         let products;
 
         if(newQuery) {
-            products = await ProductModel.find().sort({createdAt: -1}).limit()
+            products = await ProductModel.find().sort({createdAt: -1}).limit(1)
         } else if(queryCategory) {
             products = await ProductModel.find({categories: {
                 $in: [queryCategory] 
@@ -85,16 +86,16 @@ router.get("/", async ( req, res ) => {
         } else {
             products = await ProductModel.find()
         }
-        
+
         res.status(200).json(products) 
 
 
     } catch(err) {
         res.status(403).json(err)
 
-    }
+    } 
 } )
-
+ 
 
 
 module.exports = router;

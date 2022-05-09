@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import { useState, useEffect } from "react";
 import Product from '../Product/Product'
 import { productData } from '../../data'
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -9,7 +11,17 @@ const Container = styled.div`
 `
 
 const Products = ({cat, sort, filters}) => {
-  console.log(cat, sort, filters)
+
+  const [ filter, setFilter ] = useState([])
+
+  useEffect( () => {
+    const res = axios.get("localhost:5000/api/products")
+
+  }, [])
+
+
+
+  
   return (
     <Container>
         {productData.map( (product) => (

@@ -8,8 +8,7 @@ const ProductSchema = new mongoose.Schema(
             unique: true   
         },
         categories: {
-            type: Array,
-            required: true
+            type: Array
         },
         des: {
             type: String,
@@ -30,9 +29,9 @@ const ProductSchema = new mongoose.Schema(
         color: {
             type: String
 
-        },
+        }
     },
-    { timeStamps: true }
+    { timestamps: true }
 )
 
 
