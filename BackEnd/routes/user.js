@@ -1,6 +1,6 @@
 const express = require('express');
 const UserModel = require('../models/User');
-const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndisAdmin } = require('./verifyJwtToken');
+const { verifyTokenAndAuthorization, verifyTokenAndisAdmin } = require('./verifyJwtToken');
 const router = express.Router();
 
 // Update to Database
@@ -55,18 +55,21 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 
   // Get One User/Document on Databse
 
-router.get("/:id", verifyTokenAndisAdmin, async ( req, res) => {
+  // Error: verifyTokenAndisAdmin is not working yet.....
+
+router.get("/:id",  async ( req, res) => {
     try {
 
+       
         const findUser = await UserModel.findById(req.params.id);
         res.status(200).json(findUser);
 
     } catch(err) {
         res.status(404).json(err)
-    }
+    } 
 })
 
-
+ 
 // Get All Users/Documents on Database
 
 
@@ -80,6 +83,7 @@ router.get('/',  async ( req, res) => {
         res.status(403).json()
     }
 })
+
 
 
 //   Get All Stats  i.e Total Number of registered Users per month...

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const UserCart = require("./models/Cart")
+const UserCart = require("../models/Cart")
 
 
 router.put("/:id", async ( req, res) => {

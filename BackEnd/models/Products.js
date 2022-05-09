@@ -7,8 +7,9 @@ const ProductSchema = new mongoose.Schema(
             required: true,
             unique: true   
         },
-        categories: {
-
+        cat: {
+            type: Array,
+            required: true
         },
         des: {
             type: String,

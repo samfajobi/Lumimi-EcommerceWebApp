@@ -18,6 +18,7 @@ const verifyToken =  ( req, res, next) => {
     }
 }
 
+// Error: req.user.others is only working for ids i.e req.id, and not working for others....
 
 const verifyTokenAndAuthorization = (req, res, next) => {
     verifyToken( req, res ,() => {
@@ -25,10 +26,11 @@ const verifyTokenAndAuthorization = (req, res, next) => {
             next()
 
         } else {
-            res.status(403).json("Access Denied!!!")
+            res.status(403).json(`Access Denied!!! ${req.user.password}`)
         }
     })
-}
+};
+
 
 
 const verifyTokenAndisAdmin = ( req, res, next) => {
@@ -37,9 +39,9 @@ const verifyTokenAndisAdmin = ( req, res, next) => {
             next()
 
         } else {
-            res.status(403).json("ACCESS DENIED!!! NOT ALLOWED!!!")
+            res.status(403).json(`Error!! ${req.user.isAdmin}`)
         }
-    })  
+    })   
 }
 
 

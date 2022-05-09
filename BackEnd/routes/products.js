@@ -1,22 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const ProductModel = require("./models/Products")
+const ProductModel = require("../models/Products")
 
 
 
+// verifyTokenAndisAdmin error should  be fixed and used before the async function.....
 
-router.put("/:id", async ( req, res ) => {
+router.post("/",   async ( req, res ) => {
+
+    const newProducts = new ProductModel(req.body)
+
     try{
 
-        const UserProducts = await ProductModel.findByIdAndUpdate(req.params.id,
-            {
-                $set: req.body
-            },
-            {
-                new: true
-            }
-            )
-
+        const UserProducts = await newProducts.save()
         res.status(200).json(UserProducts)
 
     } catch (err) {
@@ -24,6 +20,27 @@ router.put("/:id", async ( req, res ) => {
     }
 })
 
+
+router.put("/:id", async ( req, res) => {
+
+    try {
+        const updateProduct = await ProductModel.findByIdAndUpdate(req.params.id, 
+            {
+                $set: req.body
+
+            },
+            {
+                new: true
+
+            })
+
+         res.status(200).json(updateProduct)   
+
+    } catch(err) {
+        res.status(404).json(err)
+
+    }
+})
 
 router.delete("/:id", async ( req, res ) => {
     try {
@@ -45,7 +62,7 @@ router.get("/:id", async ( res, req ) => {
 
 
     } catch(err) {
-        res.status(403).json(err)
+        res.status(500).json(err)
     }
 } ) 
 
@@ -55,16 +72,15 @@ router.get("/", async ( req, res ) => {
     try { 
 
         const Products = await ProductModel.find()
-
-        res.status(403).json(Products)
+        res.status(200).json(Products) 
 
 
     } catch(err) {
         res.status(403).json(err)
 
-
     }
 } )
+
 
 
 module.exports = router;
