@@ -6,6 +6,7 @@ const ProductModel = require("../models/Products")
 
 // verifyTokenAndisAdmin error should  be fixed and used before the async function.....
 
+
 router.post("/",   async ( req, res ) => {
 
     const newProducts = new ProductModel(req.body)
@@ -19,6 +20,7 @@ router.post("/",   async ( req, res ) => {
         res.status(403).json(err)
     }
 })
+
 
 
 router.put("/:id", async ( req, res) => {
@@ -41,6 +43,7 @@ router.put("/:id", async ( req, res) => {
 
     }
 })
+
 
 
 router.delete("/:id", async ( req, res ) => {
@@ -81,7 +84,7 @@ router.get("/", async ( req, res ) => {
         } else if(queryCategory) {
             products = await ProductModel.find({categories: {
                 $in: [queryCategory] 
-            }}).sort({createdAt: -1})
+            }}).sort({createdAt: -1}) 
 
         } else {
             products = await ProductModel.find()

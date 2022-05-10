@@ -11,8 +11,8 @@ const Container = styled.div`
 `
 
 const Products = ({cat, sort, filters}) => {
-  const [ product, setProduct] = useState([]);
-  const [ filter, setFilter ] = useState([]);
+  const [ products, setProducts] = useState([]);
+  const [ filterProducts, setFilterProducts ] = useState([]);
 
   useEffect( () => {
     const getProducts = async () => {
@@ -25,21 +25,36 @@ const Products = ({cat, sort, filters}) => {
       } catch(err) {
         console.log(err)
       }
+      setProducts(response.data)
     }
     getProducts()
   }, [cat])
 
 
   useEffect( () => {
-    const filterProducts = () => {
+
+    cat && setFilterProducts(
+      products.filter((item)=> 
+      Object
+      )
+    )
+   
+  }, [products, cat, filters])
+
+
+
+  useEffect( () => {
+    const sortProducts = () => {
       try {
 
-       
+      } catch(err) {
 
-      } catch (err) {
-        res.status(500).json(err)
       }
+
     }
+
+    sortProducts()
+
   })
 
 
@@ -55,4 +70,4 @@ const Products = ({cat, sort, filters}) => {
   )
 }
 
-export default Products
+export default Products;

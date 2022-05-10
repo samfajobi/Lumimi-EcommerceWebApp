@@ -43,6 +43,7 @@ const Option = styled.option`
   
 
 `
+
 const ProductsPage = () => {
   const location = useLocation()
   const cat = location.pathname.split("/")[2]
@@ -56,6 +57,7 @@ const ProductsPage = () => {
       ...filters,
       [event.target.name]: value})
   }
+
 
   return (
    
@@ -99,5 +101,6 @@ const ProductsPage = () => {
    
   )
 }
+
 
 export default ProductsPage
