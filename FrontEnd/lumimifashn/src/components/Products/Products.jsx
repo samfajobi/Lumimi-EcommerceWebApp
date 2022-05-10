@@ -11,13 +11,15 @@ const Container = styled.div`
 `
 
 const Products = ({cat, sort, filters}) => {
-
-  const [ filter, setFilter ] = useState([])
+  const [ product, setProduct] = useState([]);
+  const [ filter, setFilter ] = useState([]);
 
   useEffect( () => {
     const getProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products/")
+        const response = await axios.get(
+          cat ? `http://localhost:5000/api/products${cat}` 
+        : "http://localhost:5000/api/products" )
         console.log(response)
 
       } catch(err) {
@@ -26,6 +28,19 @@ const Products = ({cat, sort, filters}) => {
     }
     getProducts()
   }, [cat])
+
+
+  useEffect( () => {
+    const filterProducts = () => {
+      try {
+
+       
+
+      } catch (err) {
+        res.status(500).json(err)
+      }
+    }
+  })
 
 
   

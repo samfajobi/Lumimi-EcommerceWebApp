@@ -86,7 +86,7 @@ router.get("/", async ( req, res ) => {
         } else {
             products = await ProductModel.find()
         }
-
+    
         res.status(200).json(products) 
 
 
