@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom'
 
 const Info = styled.div`
   opacity: 0;
@@ -83,7 +84,10 @@ const Product = ( {product} ) => {
             <Icon>
                 <ShoppingCartOutlinedIcon />
             </Icon>
-            <Icon><SearchIcon /></Icon>
+            <Link to={`/product/${product._id}`}>
+              <Icon><SearchIcon /></Icon>
+            </Link>
+            
             <Icon><ShoppingCartOutlinedIcon /></Icon>
         </Info>
     </Container>

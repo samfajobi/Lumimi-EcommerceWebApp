@@ -5,6 +5,9 @@ import InfoSection from "../InfoSection/InfoSection";
 import Footer from "../Footer/Footer";
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
+import axios from "axios";
+import { useLocation } from "react-router";
+import { useState, useEffect } from 'react'
 
 
 
@@ -119,6 +122,26 @@ const Button = styled.button`
 
 
 const ProductPage = () => {
+
+  const location = useLocation()
+  id = location.pathname.split("/")[2]
+  const [ product, setProduct] = useState([])
+
+
+  useEffect( () => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/product?category=${id}")
+      }catch(err) {
+        console.log(err)
+        
+      }
+       
+
+    }
+  })
+
+
   return (
       <Container>
           <Navbar />

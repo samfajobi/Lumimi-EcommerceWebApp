@@ -64,7 +64,7 @@ const ProductsPage = () => {
       <Container>
           <Navbar />
           <Announcement />
-          <Title>Clothes</Title>
+          <Title>{cat}</Title>
           <FilterContainer>
             <Filter><FilterText>Filter Products:</FilterText>
               <Select name="color" onChange={handleFilter}>

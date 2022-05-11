@@ -60,11 +60,12 @@ const Products = ({cat, sort, filters}) => {
         setFilteredProducts( (prev) => {
           [...prev].sort((a, b) => a.price - b.price)
         })
-      }
+      } else {
+        setFilteredProducts((prev) => {
+          [...prev].sort((a, b) => b.price - a.price)
+        })
+      } 
     }
-
-    sortProducts()
-
   })
 
 
@@ -75,8 +76,8 @@ const Products = ({cat, sort, filters}) => {
     <Container>
         { cat ? filteredProducts.map( (product) => (
             <Product key={product.id} product={product}/>
-        )) : productData.map( (product) => (
-          <Product key={product.id} product={product}/>))}
+        )) : productData.slice(0,7).map( (product) => (
+            <Product key={product.id} product={product}/>))}
 
     </Container>
   )

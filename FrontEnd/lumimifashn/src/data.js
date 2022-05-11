@@ -58,5 +58,11 @@ export const productData = [
         img: "https://pictures-nigeria.jijistatic.com/87407922_MTA0MC05NTMtYmM2OTVlNTMzNw.jpg"
     },
 
+    {
+        id: 8,
+        img: "https://pictures-nigeria.jijistatic.com/87407922_MTA0MC05NTMtYmM2OTVlNTMzNw.jpg"
+    },
+
+
     
 ]
