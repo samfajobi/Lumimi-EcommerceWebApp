@@ -126,21 +126,33 @@ const ProductPage = () => {
   const location = useLocation()
   id = location.pathname.split("/")[2]
   const [ product, setProduct] = useState([])
+  const [ quantity, setQuantity] = useState(1)
+ 
+
+  const handleQuantity  = () => {
+    if( type === "dec") {
+    setIncreaseQuant( quantity + 1)
+    } else {
+      setIncreaseQuant (quantity - 1 )
+    }
+  }
+
 
 
   useEffect( () => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/product?category=${id}")
-      }catch(err) {
-        console.log(err)
-        
+        const response = await axios.get("http://localhost:5000/api/products/" + id)
+        setProduct(response.data)
+
+      } catch(err) {
+        console.log(err) 
       }
-       
-
     }
-  })
-
+    fetchProduct()
+  }, [id])
+    
+  
 
   return (
       <Container>
@@ -148,10 +160,10 @@ const ProductPage = () => {
           <Announcement />
           <Wrapper>
               <ImgContainer>
-                <Image src='images/ankara.png'/>
+                <Image src={product.img}/>
               </ImgContainer>
               <InfoContainer>
-                  <InfoTitle>Denim Jacket</InfoTitle>
+                  <InfoTitle>{product.title}</InfoTitle>
                   <InfoDesc>
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -159,28 +171,29 @@ const ProductPage = () => {
                    specimen book. It has survived not only five centuries, but also the leap into 
                    electronic typesetting, remaining essentially unchanged. 
                   </InfoDesc>
-                  <Price>$ 20</Price>
+                  <Price>${product.price}</Price>
                   <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
-                        <FilterColor color='black'></FilterColor>
-                        <FilterColor color='gray'></FilterColor>
-                        <FilterColor color='blue'></FilterColor>
+                       {product.color.map((c) => (
+                         <FilterColor color={c}></FilterColor>
+                       ))}
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                            <FilterSizeOption>XS</FilterSizeOption>
-                            <FilterSizeOption>S</FilterSizeOption>
-                            <FilterSizeOption>M</FilterSizeOption>
+                            {product.size.map((sz) => (
+                              <FilterSizeOption>{sz}</FilterSizeOption>
+                            ))}
+                            
                         </FilterSize>
                     </Filter>
                   </FilterContainer>
                   <ChangeProdctNoContainer>
                     <AmountContainer>
-                        <RemoveIcon />
+                        <RemoveIcon onClick={() => handleQuantity("dec") }/>
                         <Amount>1</Amount>
-                        <AddIcon />
+                        <AddIcon  onClick={ () => handleQuantity("inc")}/>
                     </AmountContainer>
                     <Button>Add to Cart</Button>
                   </ChangeProdctNoContainer>
