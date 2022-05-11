@@ -124,16 +124,16 @@ const Button = styled.button`
 const ProductPage = () => {
 
   const location = useLocation()
-  id = location.pathname.split("/")[2]
+  const id = location.pathname.split("/")[2]
   const [ product, setProduct] = useState([])
   const [ quantity, setQuantity] = useState(1)
  
 
-  const handleQuantity  = () => {
+  const handleQuantity  = (type) => {
     if( type === "dec") {
-    setIncreaseQuant( quantity + 1)
+      setQuantity( quantity + 1)
     } else {
-      setIncreaseQuant (quantity - 1 )
+       quantity > 1 && setQuantity (quantity - 1 )
     }
   }
 
@@ -165,41 +165,35 @@ const ProductPage = () => {
               <InfoContainer>
                   <InfoTitle>{product.title}</InfoTitle>
                   <InfoDesc>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                   when an unknown printer took a galley of type and scrambled it to make a type 
-                   specimen book. It has survived not only five centuries, but also the leap into 
-                   electronic typesetting, remaining essentially unchanged. 
+                  {product.des} 
                   </InfoDesc>
                   <Price>${product.price}</Price>
                   <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
-                       {product.color.map((c) => (
-                         <FilterColor color={c}></FilterColor>
-                       ))}
+                       
+                         <FilterColor>{product.color}</FilterColor>
+                    
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                            {product.size.map((sz) => (
-                              <FilterSizeOption>{sz}</FilterSizeOption>
-                            ))}
+                           
+                              <FilterSizeOption>{product.size}</FilterSizeOption>
+                        
                             
                         </FilterSize>
                     </Filter>
                   </FilterContainer>
                   <ChangeProdctNoContainer>
                     <AmountContainer>
-                        <RemoveIcon onClick={() => handleQuantity("dec") }/>
-                        <Amount>1</Amount>
-                        <AddIcon  onClick={ () => handleQuantity("inc")}/>
+                        <RemoveIcon onClick={() => handleQuantity("inc") }/>
+                        <Amount>{quantity}</Amount>
+                        <AddIcon  onClick={() => handleQuantity("dec")}/>
                     </AmountContainer>
                     <Button>Add to Cart</Button>
                   </ChangeProdctNoContainer>
-                  
               </InfoContainer>
-             
           </Wrapper>
           <InfoSection />
           <Footer />
