@@ -74,7 +74,7 @@ router.get("/:id", async ( req, res ) => {
  
 router.get("/", async ( req, res ) => {
     const newQuery = req.query.new
-    const queryCategory = req.query.Category
+    const queryCategory = req.query.category
 
     try { 
         let products;

@@ -12,15 +12,17 @@ const Container = styled.div`
 
 const Products = ({cat, sort, filters}) => {
   const [ products, setProducts] = useState([]);
-  const [ filterProducts, setFilterProducts ] = useState([]);
+  const [ filteredProducts, setFilteredProducts ] = useState([]);
+
+
 
   useEffect( () => {
     const getProducts = async () => {
       try {
         const response = await axios.get(
-          cat ? `http://localhost:5000/api/products${cat}` 
+          cat ? `http://localhost:5000/api/products?category=${cat}` 
         : "http://localhost:5000/api/products" )
-        console.log(response)
+        console.log(response.data)
 
       } catch(err) {
         console.log(err)
@@ -31,11 +33,14 @@ const Products = ({cat, sort, filters}) => {
   }, [cat])
 
 
-  useEffect( () => {
+   // ReCheck and Understand Well
 
-    cat && setFilterProducts(
+  useEffect( () => {
+    cat && setFilteredProducts(
       products.filter((item)=> 
-      Object
+        Object.entries(filters).every(([key, value]) => 
+          item[key].includes(value)
+        )
       )
     )
    
@@ -43,14 +48,19 @@ const Products = ({cat, sort, filters}) => {
 
 
 
+   // ReCheck and Understand well
+
   useEffect( () => {
     const sortProducts = () => {
-      try {
-
-      } catch(err) {
-
+      if(( sort === "newest" )) {
+        setFilteredProducts( (prev) => {
+          [...prev].sort((a, b) => a.createdAt - b.createdAt)
+        })
+      } else if(( sort === "asc")) {
+        setFilteredProducts( (prev) => {
+          [...prev].sort((a, b) => a.price - b.price)
+        })
       }
-
     }
 
     sortProducts()
@@ -58,13 +68,15 @@ const Products = ({cat, sort, filters}) => {
   })
 
 
+
   
 
   return (
     <Container>
-        {productData.map( (product) => (
+        { cat ? filteredProducts.map( (product) => (
             <Product key={product.id} product={product}/>
-        ))}
+        )) : productData.map( (product) => (
+          <Product key={product.id} product={product}/>))}
 
     </Container>
   )

@@ -45,8 +45,8 @@ const Option = styled.option`
 `
 
 const ProductsPage = () => {
-  const location = useLocation()
-  const cat = location.pathname.split("/")[2]
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
   const [ filters, setFilter ] = useState({});
   const [ sort, setSort ] =  useState("newest");
 
@@ -89,8 +89,8 @@ const ProductsPage = () => {
             <Filter><FilterText>Sort Products:</FilterText>
               <Select onChange={(e) => setSort(e.target.value)}>
                 <Option value="newest" >Newest</Option>
-                <Option value="asc" >Price (asc)</Option>
-                <Option value="desc" >Price (desc)</Option>
+                <Option value="asc" >Price (cheap)</Option>
+                <Option value="desc" >Price (cost)</Option>
               </Select>
             </Filter>
           </FilterContainer>
@@ -103,4 +103,4 @@ const ProductsPage = () => {
 }
 
 
-export default ProductsPage
+export default ProductsPage 
