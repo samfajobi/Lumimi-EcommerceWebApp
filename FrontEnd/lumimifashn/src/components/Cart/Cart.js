@@ -5,6 +5,7 @@ import InfoSection from "../InfoSection/InfoSection"
 import Footer from "../Footer/Footer"
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { useSelector } from "react-redux";
 
 
 
@@ -161,6 +162,10 @@ const Button = styled.button`
 
 
 const Cart = () => {
+
+  const total = useSelector((state) => state.cart.total )
+  const products = useSelector((state) => state.cart.products )
+
   return (
     <Container>
         <Navbar />
@@ -182,8 +187,10 @@ const Cart = () => {
                 <ProductDetails>
                   <Image src='/images/newFashImg.png'/>
                   <Details>
-                    {}
-                    <ProductName><b>Product:</b> JDees Dior Shoe</ProductName>
+                    {products.map((product) => (
+                    <ProductName><b>Product:</b> {product.title}</ProductName>
+                    ))}
+                    
                     <ProductId><b>ID:</b> 56565565656 </ProductId>
                     <ProductColor color ='black'/>
                     <ProductSize><b>Size:</b> 67.8</ProductSize>
@@ -201,54 +208,13 @@ const Cart = () => {
                 </PriceDetails>
               </Product>
               <Hr></Hr>
-              <Product>
-                <ProductDetails>
-                  <Image src='/images/newFashImg.png'/>
-                  <Details>
-                    <ProductName><b>Product:</b> JDees Dior Shoe</ProductName>
-                    <ProductId><b>ID:</b> 56565565656 </ProductId>
-                    <ProductColor color ='gray'/>
-                    <ProductSize><b>Size:</b> 67.8</ProductSize>
-                  </Details>
-                </ProductDetails>
-                <PriceDetails>
-                  <ProductAmountContainer>
-                    <AddIcon />
-                    <ProductAmount>3</ProductAmount>
-                    <RemoveIcon />
-                  </ProductAmountContainer>
-                  <PriceAmount>
-                    $ 40
-                  </PriceAmount>
-                </PriceDetails>
-              </Product>
-              <Product>
-                <ProductDetails>
-                  <Image src='/images/newFashImg.png'/>
-                  <Details>
-                    <ProductName><b>Product:</b> JDees Dior Shoe</ProductName>
-                    <ProductId><b>ID:</b> 56565565656 </ProductId>
-                    <ProductColor color ='black'/>
-                    <ProductSize><b>Size:</b> 67.8</ProductSize>
-                  </Details>
-                </ProductDetails>
-                <PriceDetails>
-                  <ProductAmountContainer>
-                    <AddIcon />
-                    <ProductAmount>3</ProductAmount>
-                    <RemoveIcon />
-                  </ProductAmountContainer>
-                  <PriceAmount>
-                    $ 40
-                  </PriceAmount>
-                </PriceDetails>
-              </Product>
+              
             </Info>
             <Summary>
               <SummaryTitle>ORDER NOW</SummaryTitle>
               <SummaryItems>
                 <SummaryItemText>SubTotal</SummaryItemText>
-                <SummaryItemAmount>$ 100</SummaryItemAmount>
+                <SummaryItemAmount>{total}</SummaryItemAmount>
               </SummaryItems>  
               <SummaryItems>
                 <SummaryItemText>Shipping Fee</SummaryItemText>
@@ -260,7 +226,7 @@ const Cart = () => {
               </SummaryItems>  
               <SummaryItems type='total'>
                 <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemAmount>$ 108</SummaryItemAmount>
+                <SummaryItemAmount></SummaryItemAmount>
               </SummaryItems> 
               <Button>CHECKOUT NOW</Button> 
             </Summary>
