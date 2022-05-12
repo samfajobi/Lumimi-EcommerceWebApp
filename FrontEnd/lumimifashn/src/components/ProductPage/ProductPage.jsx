@@ -8,6 +8,8 @@ import AddIcon from '@material-ui/icons/Add';
 import axios from "axios";
 import { useLocation } from "react-router";
 import { useState, useEffect } from 'react'
+import { useDispatch } from "react-redux";
+
 
 
 
@@ -123,11 +125,13 @@ const Button = styled.button`
 
 const ProductPage = () => {
 
+  
+
   const location = useLocation()
   const id = location.pathname.split("/")[2]
   const [ product, setProduct] = useState([])
   const [ quantity, setQuantity] = useState(1)
- 
+  const dispatch = useDispatch()
 
   const handleQuantity  = (type) => {
     if( type === "dec") {
@@ -153,6 +157,11 @@ const ProductPage = () => {
   }, [id])
     
   
+  const handleClick = () => {
+    dispatch(addProducts( {products, quantity}))
+
+  }
+
 
   return (
       <Container>
@@ -191,10 +200,10 @@ const ProductPage = () => {
                         <Amount>{quantity}</Amount>
                         <AddIcon  onClick={() => handleQuantity("dec")}/>
                     </AmountContainer>
-                    <Button>Add to Cart</Button>
+                    <Button onClick={handleClick}>Add to Cart</Button>
                   </ChangeProdctNoContainer>
               </InfoContainer>
-          </Wrapper>
+          </Wrapper> 
           <InfoSection />
           <Footer />
       </Container>
