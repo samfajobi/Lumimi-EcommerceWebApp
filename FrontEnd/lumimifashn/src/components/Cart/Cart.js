@@ -126,7 +126,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 55vh;
+  height: 60vh;
 
 `
 
@@ -182,6 +182,7 @@ const Cart = () => {
                 <ProductDetails>
                   <Image src='/images/newFashImg.png'/>
                   <Details>
+                    {}
                     <ProductName><b>Product:</b> JDees Dior Shoe</ProductName>
                     <ProductId><b>ID:</b> 56565565656 </ProductId>
                     <ProductColor color ='black'/>

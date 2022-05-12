@@ -8,6 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 import axios from "axios";
 import { useLocation } from "react-router";
 import { useState, useEffect } from 'react'
+import { addProducts } from "../../container/redux/cartReduxSlice";
 import { useDispatch } from "react-redux";
 
 
@@ -158,7 +159,7 @@ const ProductPage = () => {
     
   
   const handleClick = () => {
-    dispatch(addProducts( {products, quantity}))
+    dispatch(addProducts( {product, quantity, price:product.price * quantity}))
 
   }
 
@@ -179,18 +180,13 @@ const ProductPage = () => {
                   <Price>${product.price}</Price>
                   <FilterContainer>
                     <Filter>
-                        <FilterTitle>Color</FilterTitle>
-                       
+                        <FilterTitle>Color:</FilterTitle>
                          <FilterColor>{product.color}</FilterColor>
-                    
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                           
                               <FilterSizeOption>{product.size}</FilterSizeOption>
-                        
-                            
                         </FilterSize>
                     </Filter>
                   </FilterContainer>
