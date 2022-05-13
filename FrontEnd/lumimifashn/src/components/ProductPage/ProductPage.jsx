@@ -159,7 +159,7 @@ const ProductPage = () => {
     
   
   const handleClick = () => {
-    dispatch(addProducts( {product, quantity, price:product.price * quantity}))
+    dispatch(addProducts({...product, quantity}))
 
   }
 

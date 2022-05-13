@@ -127,7 +127,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 60vh;
+  height: 340px;
 
 `
 
@@ -164,7 +164,7 @@ const Button = styled.button`
 const Cart = () => {
 
   const total = useSelector((state) => state.cart.total )
-  const products = useSelector((state) => state.cart.products )
+  const cartProducts = useSelector((state) => state.cart.products )
 
   return (
     <Container>
@@ -183,30 +183,29 @@ const Cart = () => {
           </Top>
           <Bottom>
             <Info>
+              {cartProducts.map((product) => (
               <Product>
                 <ProductDetails>
-                  <Image src='/images/newFashImg.png'/>
-                  <Details>
-                    {products.map((product) => (
+                  <Image src={product.img}/>
+                  <Details>  
                     <ProductName><b>Product:</b> {product.title}</ProductName>
-                    ))}
-                    
-                    <ProductId><b>ID:</b> 56565565656 </ProductId>
-                    <ProductColor color ='black'/>
-                    <ProductSize><b>Size:</b> 67.8</ProductSize>
+                    <ProductId><b>ID:</b> {product._id} </ProductId>
+                    <ProductColor color ={product.color}/>
+                    <ProductSize><b>Size:</b> {product.size}</ProductSize>
                   </Details>
                 </ProductDetails>
                 <PriceDetails>
                   <ProductAmountContainer>
                     <AddIcon />
-                    <ProductAmount>3</ProductAmount>
+                    <ProductAmount>{product.quantity}</ProductAmount>
                     <RemoveIcon />
                   </ProductAmountContainer>
                   <PriceAmount>
-                    $ 40
+                   {product.price * product.quantity}
                   </PriceAmount>
                 </PriceDetails>
               </Product>
+              ))}
               <Hr></Hr>
               
             </Info>
@@ -225,8 +224,8 @@ const Cart = () => {
                 <SummaryItemAmount>$ 8</SummaryItemAmount>
               </SummaryItems>  
               <SummaryItems type='total'>
-                <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemAmount></SummaryItemAmount>
+                <SummaryItemText>Total:</SummaryItemText>
+                <SummaryItemAmount>{total}</SummaryItemAmount>
               </SummaryItems> 
               <Button>CHECKOUT NOW</Button> 
             </Summary>

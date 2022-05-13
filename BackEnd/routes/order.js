@@ -26,7 +26,7 @@ router.put("/:id", async (res, req ) => {
         res.status(200).json(err)
     }
 });
-
+  
 
 
 router.delete("/:id", async (res, req) => {
@@ -67,8 +67,6 @@ router.get("/", async ( res, req) => {
 
     }
 })
-
-
 
 
 
