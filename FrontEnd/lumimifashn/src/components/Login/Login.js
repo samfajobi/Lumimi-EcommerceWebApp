@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../container/redux/apiCalls';
 
 const Container = styled.div`
@@ -45,7 +45,13 @@ const Button = styled.button`
   background-color:  #E110F8;
   color: #F5F5FA;
   cursor: pointer;
+
+  &:disabled {
+    color: red;
+    cursor: pointer;
+  }
 `
+
 
 const Link = styled.div`
   margin: 10px;
@@ -64,9 +70,11 @@ const Login = () => {
   const [ userPassword, setPassword ]  = useState("")
   const dispatch = useDispatch()
 
+  const { isFetching, error} = useSelector( (state) => state.user ) 
+
 
   const SubmitForm = (e) => {
-    e.prevent.default
+    e.preventDefault()
 
     login(dispatch, { username, userPassword})
   }
@@ -78,9 +86,9 @@ const Login = () => {
       <Title>SIGN IN</Title>
       <Form>
         <Input onChange ={ (event) => setUsername(event.target.value)} placeholder='Username' />
-        <Input onChange = { (event) => setPassword(event.target.value) } placeholder='Password' />
+        <Input onChange = { (event) => setPassword(event.target.value) } type="password" placeholder='Password' />
       </Form>
-      <Button onClick={SubmitForm}>LOGIN</Button>
+      <Button onClick={SubmitForm} disabled={isFetching} >LOGIN</Button>
       <Link>FORGOTTEN PASSWORD?</Link>
       <Link>CREATE A NEW ACCOUNT</Link>
     </Wrapper>
