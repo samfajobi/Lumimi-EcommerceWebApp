@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../container/redux/apiCalls';
 
 const Container = styled.div`
   width: 100vw;
@@ -60,21 +62,13 @@ const Login = () => {
 
   const [ username, setUsername ]  = useState("")
   const [ userPassword, setPassword ]  = useState("")
+  const dispatch = useDispatch()
 
-  const SubmitForm = () => {
 
-    let formData = {
-      name: username,
-      password: userPassword
-    }
+  const SubmitForm = (e) => {
+    e.prevent.default
 
-    axios.post("/login", formData).
-    then( response => {
-      console.log(response)
-    }).catch ( () => {
-      console.log("Your Form Data have not been sent successfully")
-    }) 
-    
+    login(dispatch, { username, userPassword})
   }
 
   
