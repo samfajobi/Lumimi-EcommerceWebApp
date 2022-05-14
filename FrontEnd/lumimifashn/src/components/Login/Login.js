@@ -61,6 +61,11 @@ const Link = styled.div`
   cursor: pointer;
 `
 
+const Error = styled.div`
+  color: red;
+  margin-left: 10px;
+`
+
 
 
 
@@ -72,7 +77,7 @@ const Login = () => {
 
   const { isFetching, error} = useSelector( (state) => state.user ) 
 
-
+ 
   const SubmitForm = (e) => {
     e.preventDefault()
 
@@ -89,6 +94,7 @@ const Login = () => {
         <Input onChange = { (event) => setPassword(event.target.value) } type="password" placeholder='Password' />
       </Form>
       <Button onClick={SubmitForm} disabled={isFetching} >LOGIN</Button>
+      { error && <Error>Something went wrong!!!</Error>}
       <Link>FORGOTTEN PASSWORD?</Link>
       <Link>CREATE A NEW ACCOUNT</Link>
     </Wrapper>

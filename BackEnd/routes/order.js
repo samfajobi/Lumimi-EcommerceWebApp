@@ -11,9 +11,9 @@ router.put("/:id", async (res, req ) => {
             {
                 $set: req.body
 
-            },
-            {
-                new: true,
+            },   
+            { 
+                new: true, 
                 runValidators: true
 
             }

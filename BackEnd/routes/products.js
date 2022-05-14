@@ -68,16 +68,15 @@ router.get("/:id", async ( req, res ) => {
     } catch(err) {
         res.status(403).json(err)
     }
-} ) 
-
+} )  
 
  
 router.get("/", async ( req, res ) => {
     const newQuery = req.query.new
     const queryCategory = req.query.category
-
+ 
     try { 
-        let products;
+        let products;   
 
         if(newQuery) {
             products = await ProductModel.find().sort({createdAt: -1}).limit(1)
