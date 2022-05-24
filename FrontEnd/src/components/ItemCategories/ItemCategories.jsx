@@ -11,6 +11,7 @@ const Container = styled.div`
   @media screen and (max-width: 600px) {
     display: flex;
     flex-direction: column;
+    background: lightgray;
   }
 
 `

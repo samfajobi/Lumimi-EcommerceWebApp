@@ -12,6 +12,12 @@ const Container = styled.div`
   width: 100vw;
   padding: 20px;
   display: flex;
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+
+  }
  
 `
 
@@ -81,15 +87,29 @@ const LgIcon4 = styled.div`
 const Links = styled.div`
   display: flex;
   margin-top: 34px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
   
 `
 const WebLinks = styled.div`
   flex: 1
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
  
   
 `
 const LnkTitle = styled.h3`
   margin-left: 38px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+
+  
 `
 
 const Ul1 = styled.ul`
@@ -132,8 +152,8 @@ const Address = styled.div`
  
 `
 const AddrsIcon1 = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: lightgray;
   display: flex;
@@ -142,8 +162,8 @@ const AddrsIcon1 = styled.div`
   margin-right: 5px;
 `
 const AddrsIcon2 = styled.div`
-width: 30px;
-height: 30px;
+width: 40px;
+height: 40px;
 border-radius: 50%;
 background: lightgray;
 display: flex;
@@ -151,7 +171,16 @@ justify-content: center;
 align-items: center;
 margin-right: 5px;
 `
-const AddrsIcon3 = styled.div``
+const AddrsIcon3 = styled.div`
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: lightgray;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 5px;
+`
 
 
 const Footer = () => {
@@ -191,7 +220,6 @@ const Footer = () => {
               <Li>Home</Li>
             </Ul2>
           </Links>
-
           </WebLinks>
           
 
