@@ -16,14 +16,13 @@ const Container = styled.div`
   @media screen and (max-width: 600px) {
     display: flex;
     flex-direction: column;
-
   }
  
 `
 
 const LogoPart = styled.div`
   flex: 1;
-  margin-right: 45px;
+ 
 `
 const Logo = styled.h1``
 const Desc = styled.div`
@@ -84,17 +83,11 @@ const LgIcon4 = styled.div`
     align-items: center;
 `
 
-const Links = styled.div`
-  display: flex;
-  margin-top: 34px;
 
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
-  
-`
 const WebLinks = styled.div`
-  flex: 1
+  flex: 1;
+ 
+ 
 
   @media screen and (max-width: 600px) {
     display: none;
@@ -102,6 +95,8 @@ const WebLinks = styled.div`
  
   
 `
+
+
 const LnkTitle = styled.h3`
   margin-left: 38px;
 
@@ -111,21 +106,42 @@ const LnkTitle = styled.h3`
 
   
 `
+const Links = styled.div`
+  display: flex;
+  margin-top: 34px;
+  margin-left: 40px;
 
-const Ul1 = styled.ul`
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
   
 `
-const Ul2 = styled.ul`
-  margin-left: 100px;
+
+const Ul1 = styled.div`
+  
 `
+
+
+const Ul2 = styled.div`
+  margin-left: 24%;
+`
+
+
 
 const Li = styled.li`
   list-style: none;
   margin-top: 5px;
+  margin-bottom: 15px;
 `
 
 const Contact = styled.div` 
-  flex: 1
+  flex: 1;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 20px;
+    background-color: lightgray;
+
+  }
 `
 
 const ContTitle = styled.h3`
@@ -205,24 +221,21 @@ const Footer = () => {
           <WebLinks>
            <LnkTitle>Useful Links</LnkTitle>
            <Links>
-            <Ul1>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-            </Ul1>
-            <Ul2>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-              <Li>Home</Li>
-            </Ul2>
-          </Links>
+             <Ul1>
+               <Li>Home</Li>
+               <Li>Home</Li>
+               <Li>Home</Li>
+               <Li>Home</Li>
+             </Ul1>
+             <Ul2>
+               <Li>Home</Li>
+               <Li>Home</Li>
+               <Li>Home</Li>
+               <Li>Home</Li>
+             </Ul2>
+           </Links>
           </WebLinks>
           
-
         <Contact>
             <ContTitle>Contact</ContTitle>
             <AllAddress>
