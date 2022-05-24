@@ -3,7 +3,7 @@ import SendIcon from '@material-ui/icons/Send';
 
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   background-color: lightgray;
   height: 390px;
   display: flex;
@@ -24,17 +24,24 @@ const SubTitle = styled.p`
   font-size: 20px;
   font-weight: 450;
 
+ 
+
 `
 
 const InputContainer = styled.div`
   display: flex;
+
+
+  @media screen and (max-width: 600px) {
+    width: 70%;
+  }
+
 `
 
 const Input = styled.input`
   padding: 12px 20px;
   width: 500px;
   font-size: 16px;
- 
 
 `
 const Button = styled.button`

@@ -6,11 +6,15 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;  
   postion: relative;
   background-color: lightgray;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 const Arrow = styled.div`

@@ -8,6 +8,11 @@ const Container = styled.div`
   display: flex;
   padding: 20px;
 
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+
 `
 const ItemCategories = () => {
   

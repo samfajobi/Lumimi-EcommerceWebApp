@@ -20,8 +20,6 @@ app.use(cors(corsOptions)) // Use this after the variable declaration
 
 
 
-
-
 app.use(express.json());
   
 

@@ -9,7 +9,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   padding: 20px;
   display: flex;
  
@@ -17,6 +17,7 @@ const Container = styled.div`
 
 const LogoPart = styled.div`
   flex: 1;
+  margin-right: 45px;
 `
 const Logo = styled.h1``
 const Desc = styled.div`
@@ -78,39 +79,78 @@ const LgIcon4 = styled.div`
 `
 
 const Links = styled.div`
-  flex: 1
-`
-
-const LnkTitle = styled.h5`
-`
-
-const Ul = styled.ul`
+  display: flex;
+  margin-top: 34px;
   
+`
+const WebLinks = styled.div`
+  flex: 1
+ 
+  
+`
+const LnkTitle = styled.h3`
+  margin-left: 38px;
+`
+
+const Ul1 = styled.ul`
+  
+`
+const Ul2 = styled.ul`
+  margin-left: 100px;
 `
 
 const Li = styled.li`
+  list-style: none;
+  margin-top: 5px;
 `
 
 const Contact = styled.div` 
   flex: 1
 `
 
-const ContTitle = styled.div`
+const ContTitle = styled.h3`
   
 `
-
+const AllAddress = styled.div`
+  margin-top: 35px;
+`
 const Address1 = styled.div`
   display: flex;
+  margin-top: 10px;
 `
 const Address2 = styled.div`
   display: flex;
+  margin-top: 15px;
+
 `
 const Address3 = styled.div`
   display: flex;
+  margin-top: 15px;
+
 `
-const Address = styled.div``
-const AddrsIcon1 = styled.div``
-const AddrsIcon2 = styled.div``
+const Address = styled.div`
+ 
+`
+const AddrsIcon1 = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+`
+const AddrsIcon2 = styled.div`
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: lightgray;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 5px;
+`
 const AddrsIcon3 = styled.div``
 
 
@@ -133,31 +173,45 @@ const Footer = () => {
             </LogoIcons>   
         </LogoPart>
 
-        <Links>
-          <LnkTitle>Useful Links</LnkTitle>
-          <Ul>
+          <WebLinks>
+           <LnkTitle>Useful Links</LnkTitle>
+           <Links>
+            <Ul1>
               <Li>Home</Li>
               <Li>Home</Li>
               <Li>Home</Li>
               <Li>Home</Li>
               <Li>Home</Li>
-          </Ul>
-        </Links>
+            </Ul1>
+            <Ul2>
+              <Li>Home</Li>
+              <Li>Home</Li>
+              <Li>Home</Li>
+              <Li>Home</Li>
+              <Li>Home</Li>
+            </Ul2>
+          </Links>
+
+          </WebLinks>
+          
 
         <Contact>
             <ContTitle>Contact</ContTitle>
-            <Address1>
+            <AllAddress>
+              <Address1>
                 <AddrsIcon1><LocationOnIcon /></AddrsIcon1>
                 <Address>23,off Akoka road, Yaba Lagos</Address>
-            </Address1>
-            <Address2>
+              </Address1>
+              <Address2>
                 <AddrsIcon2><CallIcon /></AddrsIcon2>
                 <Address>8153382359, 09045666888</Address>
-            </Address2>
-            <Address3>
+              </Address2>
+              <Address3>
                 <AddrsIcon3><MailOutlineIcon /></AddrsIcon3>
                 <Address>info@segfaj.email.com</Address>
-            </Address3>
+              </Address3>
+            </AllAddress>
+            
 
         </Contact>
 

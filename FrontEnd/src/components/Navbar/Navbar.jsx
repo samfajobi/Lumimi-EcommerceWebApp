@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 
 const Container = styled.div`
   height: 60px
+  width: 100%;
 `
 
 const Wrapper = styled.div`
@@ -55,17 +56,16 @@ const SearchContainer = styled.div`
     display: flex;
     border: 1px solid lightgray;
     padding: 3px;
-    margin: 0px 0px 5px 0px;
+    
    
-   
-   
-
   }
 
 `
 
 const Input = styled.input`
   border: none;
+  width: 60px;
+  margin-right: 5px;
 
   
 `

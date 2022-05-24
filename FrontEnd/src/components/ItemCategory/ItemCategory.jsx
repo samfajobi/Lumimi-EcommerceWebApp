@@ -6,8 +6,6 @@ const Container = styled.div`
   flex: 1;
   margin: 8px;
   position: relative;
- 
-
 `
 const Img = styled.img`
   width: 100%;

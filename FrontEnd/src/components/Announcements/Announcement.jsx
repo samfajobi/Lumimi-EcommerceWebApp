@@ -5,7 +5,9 @@ import styled from 'styled-components';
 
 
 const Container = styled.div`
+  overflow: hidden;
   height: 35px;
+  width: 100vw;
   background-color: blue;
   color: white;
   display: flex;
