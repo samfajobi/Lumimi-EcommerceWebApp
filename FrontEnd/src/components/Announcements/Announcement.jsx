@@ -5,9 +5,8 @@ import styled from 'styled-components';
 
 
 const Container = styled.div`
-  overflow: hidden;
   height: 35px;
-  width: 100vw;
+  max-width: 100vw;
   background-color: blue;
   color: white;
   display: flex;
@@ -15,6 +14,16 @@ const Container = styled.div`
   justify-content: center;
   font-size: 15px;
   font-weight: 500;
+
+
+  @media  screen and (max-width: 414px) {
+   
+    font-size: 13px;
+   
+   
+    
+   
+  }
 `
 
 

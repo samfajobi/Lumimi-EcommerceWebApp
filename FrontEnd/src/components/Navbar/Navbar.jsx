@@ -9,7 +9,8 @@ import { Link } from "react-router-dom"
 
 const Container = styled.div`
   height: 60px
-  width: 100%;
+  width: 100vw;
+
 `
 
 const Wrapper = styled.div`

@@ -139,7 +139,8 @@ const Contact = styled.div`
 
   @media screen and (max-width: 600px) {
     margin-top: 20px;
-    background-color: lightgray;
+    background: lightgray;
+   
 
   }
 `
@@ -252,9 +253,7 @@ const Footer = () => {
                 <Address>info@segfaj.email.com</Address>
               </Address3>
             </AllAddress>
-            
-
-        </Contact>
+       </Contact>
 
     </Container>
   )
