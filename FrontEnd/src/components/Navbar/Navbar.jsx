@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 
 const Container = styled.div`
-  height: 60px
+  height: 60px;
   width: 100vw;
 
 `
@@ -57,8 +57,6 @@ const SearchContainer = styled.div`
     display: flex;
     border: 1px solid lightgray;
     padding: 3px;
-    
-   
   }
 
 `
@@ -67,8 +65,7 @@ const Input = styled.input`
   border: none;
   width: 60px;
   margin-right: 5px;
-
-  
+ 
 `
 const Search = styled.div`
   font-weight: bold;
@@ -92,6 +89,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   padding-left: 10px;
   font-size: 17px;
+
 `
 
 
@@ -105,8 +103,8 @@ const Navbar = () => {
             <Left>
                 <Search>Search</Search>
                 <SearchContainer>
-                    <Input/>
-                    <SearchIcon />
+                  <Input/>
+                  <SearchIcon />
                 </SearchContainer>
             </Left>
             <Center>
@@ -121,10 +119,8 @@ const Navbar = () => {
                   <ShoppingCartOutlinedIcon />
                 </Badge>
               </Link>
-              
               </MenuItem>  
             </Right>
-
         </Wrapper>
     </Container>
     

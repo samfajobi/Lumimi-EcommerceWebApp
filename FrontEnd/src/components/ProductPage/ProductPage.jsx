@@ -180,13 +180,13 @@ const ProductPage = () => {
                   <Price>${product.price}</Price>
                   <FilterContainer>
                     <Filter>
-                        <FilterTitle>Color:</FilterTitle>
-                         <FilterColor>{product.color}</FilterColor>
+                      <FilterTitle>Color:</FilterTitle>
+                      <FilterColor>{product.color}</FilterColor>
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                              <FilterSizeOption>{product.size}</FilterSizeOption>
+                          <FilterSizeOption>{product.size}</FilterSizeOption>
                         </FilterSize>
                     </Filter>
                   </FilterContainer>
