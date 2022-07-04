@@ -6,6 +6,7 @@ const authRoute = require('./routes/auth')
 const cartRoute = require("./routes/cart")
 const productRoute = require("./routes/products")
 const cors = require("cors")
+const path = require("path")
 
 
 const app = express();
@@ -34,8 +35,18 @@ app.use('/api/auth', authRoute)
 app.use("/api/cart", cartRoute)
 app.use("/api/products", productRoute)
 
-const Port = process.env.PORT || 4000;
+if (process.env.NODE === "production") {
+    // set Static File
+    app.use(express.static("frontend/build"))
 
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+    })
+}
+
+
+
+const Port = process.env.PORT || 4000;
 
 app.listen( Port, () => {
     console.log(`Server is running on Port ${Port}`)
